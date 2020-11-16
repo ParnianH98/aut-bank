@@ -1,0 +1,63 @@
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 200;
+	src: url('~static/fonts/IRANSans/eot/IRANSans_UltraLight.eot');
+	src: url('~static/fonts/IRANSans/eot/IRANSans_UltraLight.eot?#iefix')
+			format('embedded-opentype'),
+		url('~static/fonts/IRANSans/woff2/IRANSans_UltraLight.woff2')
+			format('woff2'),
+		url('~static/fonts/IRANSans/woff/IRANSans_UltraLight.woff')
+			format('woff'),
+		url('~static/fonts/IRANSans/ttf/IRANSans_UltraLight.ttf')
+			format('truetype');
+}
+
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 300;
+	src: url('~static/fonts/IRANSans/eot/IRANSans_Light.eot');
+	src: url('~static/fonts/IRANSans/eot/IRANSans_Light.eot?#iefix')
+			format('embedded-opentype'),
+		url('~static/fonts/IRANSans/woff2/IRANSans_Light.woff2') format('woff2'),
+		url('~static/fonts/IRANSans/woff/IRANSans_Light.woff') format('woff'),
+		url('~static/fonts/IRANSans/ttf/IRANSans_Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 400;
+	src: url('~static/fonts/IRANSans/eot/IRANSans.eot');
+	src: url('~static/fonts/IRANSans/eot/IRANSans.eot?#iefix')
+			format('embedded-opentype'),
+		url('~static/fonts/IRANSans/woff2/IRANSans.woff2') format('woff2'),
+		url('~static/fonts/IRANSans/woff/IRANSans.woff') format('woff'),
+		url('~static/fonts/IRANSans/ttf/IRANSans.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 500;
+	src: url('~static/fonts/IRANSans/eot/IRANSans_Medium.eot');
+	src: url('~static/fonts/IRANSans/eot/IRANSans_Medium.eot?#iefix')
+			format('embedded-opentype'),
+		url('~static/fonts/IRANSans/woff2/IRANSans_Medium.woff2')
+			format('woff2'),
+		url('~static/fonts/IRANSans/woff/IRANSans_Medium.woff') format('woff'),
+		url('~static/fonts/IRANSans/ttf/IRANSans_Medium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 700;
+	src: url('~static/fonts/IRANSans/eot/IRANSans_Bold.eot');
+	src: url('~static/fonts/IRANSans/eot/IRANSans_Bold.eot?#iefix')
+			format('embedded-opentype'),
+		url('~static/fonts/IRANSans/woff2/IRANSans_Bold.woff2') format('woff2'),
+		url('~static/fonts/IRANSans/woff/IRANSans_Bold.woff') format('woff'),
+		url('~static/fonts/IRANSans/ttf/IRANSans_Bold.ttf') format('truetype');
+}
