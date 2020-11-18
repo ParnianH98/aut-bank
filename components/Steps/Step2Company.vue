@@ -268,6 +268,7 @@
       </v-row>
       <v-chip
         v-for="(person, index) in persons"
+        :key="index"
         class="mx-2 mb-4"
         close
         outlined
