@@ -2,50 +2,54 @@
   <div>
     <div class="w-100 pt-1">
       <v-row>
-        <v-col>
+        <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="نام شرکت" outlined />
         </v-col>
-        <v-col>
+        <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="نام اختصاری" outlined />
         </v-col>
-        <v-col>
+        <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="شماره ثبت" outlined />
         </v-col>
-        <v-col>
+        <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="نوع شرکت" outlined />
         </v-col>
       </v-row>
       <v-row>
-        <v-col>
+        <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="ملیت" outlined />
         </v-col>
-        <v-col>
+        <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="محل ‌ثبت" outlined />
         </v-col>
-        <v-col>
+        <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="نوع فعالیت" outlined />
         </v-col>
-        <v-col>
+        <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="شناسه ملی" outlined />
         </v-col>
       </v-row>
       <v-row>
-        <v-col>
+        <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="تاریخ ‌ثبت" outlined />
         </v-col>
-        <v-col>
+        <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="کد اقتصادی" outlined />
         </v-col>
-        <v-col>
+        <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="سرمایه ثبت‌شده" outlined />
         </v-col>
-        <v-col>
+        <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="آدرس پست الکترونیکی" outlined />
         </v-col>
       </v-row>
       <v-row>
         <v-col>
-          <v-radio-group label="حساب :" v-model="row" row>
+          <v-radio-group
+            label="حساب :"
+            v-model="row"
+            :row="!$vuetify.breakpoint.mobile"
+          >
             <v-radio
               v-for="(type, index) in accountType"
               :key="index"
@@ -58,7 +62,11 @@
       </v-row>
       <v-row>
         <v-col>
-          <v-radio-group label="هدف‌از افتتاح :" v-model="row" row>
+          <v-radio-group
+            label="هدف‌از افتتاح :"
+            v-model="row"
+            :row="!$vuetify.breakpoint.mobile"
+          >
             <v-radio
               v-for="(type, index) in purposeType"
               :key="index"
