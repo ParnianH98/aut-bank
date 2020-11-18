@@ -25,34 +25,33 @@
           @next="next"
           @prev="prev"
         />
-        <Step2Company v-else :type.sync="form.type" @next="next" @prev="prev" />
+        <Step2Company
+          v-else
+          :type.sync="form.type"
+          :participants.sync="form.participants"
+          @next="next"
+          @prev="prev"
+        />
       </v-stepper-content>
 
       <v-stepper-content step="3">
-        <v-card class="mb-12" color="grey lighten-1" height="200px"></v-card>
-
-        <v-btn color="primary" @click="currentStep = 1">
-          Continue
-        </v-btn>
-
-        <v-btn text>
-          Cancel
-        </v-btn>
+        <Step3 @next="next" @prev="prev" />
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
 </template>
 <script>
-import { Step1, Step2Person, Step2Company } from "./Steps";
+import { Step1, Step2Person, Step2Company, Step3 } from "./Steps";
 
 export default {
-  components: { Step1, Step2Company, Step2Person },
+  components: { Step1, Step2Company, Step2Person, Step3 },
   data() {
     return {
       currentStep: 1,
       form: {
         type: "",
-        purpose: -1
+        purpose: -1,
+        participants: []
       }
     };
   },
