@@ -3,13 +3,23 @@
     <div class="w-100 pt-1">
       <v-row>
         <v-col cols="12" lg="3" md="6" sm="12">
-          <v-text-field label="نام شرکت" outlined />
+          <v-text-field
+            label="نام شرکت"
+            outlined
+            :value="name"
+            @input="updateValue('name', $event)"
+          />
         </v-col>
         <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="نام اختصاری" outlined />
         </v-col>
         <v-col cols="12" lg="3" md="6" sm="12">
-          <v-text-field label="شماره ثبت" outlined />
+          <v-text-field
+            label="شماره ثبت"
+            outlined
+            :value="number"
+            @input="updateValue('number', $event)"
+          />
         </v-col>
         <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="نوع شرکت" outlined />
@@ -41,6 +51,26 @@
         </v-col>
         <v-col cols="12" lg="3" md="6" sm="12">
           <v-text-field label="آدرس پست الکترونیکی" outlined />
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12">
+          <v-textarea
+            outlined
+            label="آدرس شرکت"
+            placeholder="تهران - فرمانیه - خیابان ..."
+          />
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12" lg="4" md="4" sm="12">
+          <v-text-field label="تلفن" outlined />
+        </v-col>
+        <v-col cols="12" lg="4" md="4" sm="12">
+          <v-text-field label="نمابر" outlined />
+        </v-col>
+        <v-col cols="12" lg="4" md="4" sm="12">
+          <v-text-field label="کد پستی" outlined />
         </v-col>
       </v-row>
       <v-row justify="center">
@@ -180,11 +210,12 @@
         <v-col>
           <v-radio-group
             label="حساب :"
-            v-model="row"
+            :value="accountType"
+            @change="updateValue('accountType', $event)"
             :row="!$vuetify.breakpoint.mobile"
           >
             <v-radio
-              v-for="(type, index) in accountType"
+              v-for="(type, index) in accountTypes"
               :key="index"
               color="info"
               :label="type.title"
@@ -197,11 +228,12 @@
         <v-col>
           <v-radio-group
             label="هدف‌از افتتاح :"
-            v-model="row"
+            :value="goalType"
+            @change="updateValue('goalType', $event)"
             :row="!$vuetify.breakpoint.mobile"
           >
             <v-radio
-              v-for="(type, index) in purposeType"
+              v-for="(type, index) in goalTypes"
               :key="index"
               color="info"
               :label="type.title"
@@ -210,6 +242,7 @@
           </v-radio-group>
         </v-col>
       </v-row>
+      مدارک افتتاح کننده حساب
       <v-row>
         <v-col cols="12" lg="4" md="4" sm="12">
           <v-file-input show-size label="عکس 3*4" outlined />
@@ -275,15 +308,44 @@
         color="primary"
         @click:close="persons.splice(index, 1)"
       >
-        {{ person.fullName }} با کدملی {{ person.nationalCode }} صاحب
-        {{ person.shares }} از سهام شرکت
+        {{ person.fullName || "-" }} با کدملی
+        {{ person.nationalCode || "-" }} صاحب {{ person.shares || "-" }} از سهام
+        شرکت
       </v-chip>
+    </div>
+    <div class="text-center">
+      <v-dialog v-model="dialog2" persistent max-width="290">
+        <v-card>
+          <v-card-title>
+            ارسال اطلاعات
+          </v-card-title>
+          <v-card-text>
+            آیا از صحت اطلاعات وارد شده اطمینان دارید ؟
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="error darken-1" text @click="dialog2 = false">
+              خیر
+            </v-btn>
+            <v-btn
+              color="green darken-1"
+              text
+              @click="
+                dialog2 = false;
+                $emit('next');
+              "
+            >
+              بله
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </div>
     <div class="step-footer">
       <v-btn color="error" outlined @click="$emit('prev')">
         مرحله قبل
       </v-btn>
-      <v-btn color="primary" outlined @click="$emit('next')">
+      <v-btn color="primary" outlined @click="dialog2 = true">
         مرحله بعد
       </v-btn>
     </div>
@@ -292,59 +354,38 @@
 <script>
 export default {
   props: {
-    type: {
+    accountTypes: {
+      type: Array,
+      default: () => []
+    },
+    goalTypes: {
+      type: Array,
+      default: () => []
+    },
+    accountType: {
+      type: Number,
+      default: -1
+    },
+    accountType: {
+      type: Number,
+      default: 1
+    },
+    goalType: {
+      type: Number,
+      default: 1
+    },
+    name: {
       type: String,
       default: ""
     },
-    participants: {
-      type: Array,
-      default: () => []
+    number: {
+      type: String,
+      default: ""
     }
   },
   data: () => ({
-    row: null,
     dialog: false,
-
-    purposeType: [
-      {
-        title: "انجام امورمالی",
-        value: 1
-      },
-      {
-        title: "پس‌انداز",
-        value: 2
-      },
-      {
-        title: "دریافت حقوق",
-        value: 3
-      },
-      {
-        title: "سرمایه‌گذاری",
-        value: 4
-      },
-      {
-        title: "سایر",
-        value: 5
-      }
-    ],
-    accountType: [
-      {
-        title: "قرض الحسنه جاری",
-        value: 1
-      },
-      {
-        title: "قرض الحسنه پس‌انداز",
-        value: 2
-      },
-      {
-        title: "سرمایه گذاری کوتا‌مدت",
-        value: 3
-      },
-      {
-        title: "سرمایه گذاری بلند‌مدت",
-        value: 4
-      }
-    ],
+    dialog2: false,
 
     persons: [],
     participant: {
@@ -365,6 +406,9 @@ export default {
     addParticipant() {
       this.persons.push(Object.assign({}, this.participant));
       this.resetForm();
+    },
+    updateValue(field, value) {
+      this.$emit(`update:${field}`, value);
     },
     resetForm() {
       this.participant.fullName = "";

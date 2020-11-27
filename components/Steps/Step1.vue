@@ -1,27 +1,34 @@
 <template>
-  <div class="w-100 d-flex align-center justify-space-around">
-    <v-btn
-      x-large
-      color="primary"
-      class="ma-2 white--text"
-      @click="handleClick('person')"
-    >
-      <v-icon left dark>
-        mdi-account
-      </v-icon>
-      حقیقی
-    </v-btn>
-    <v-btn
-      x-large
-      color="primary"
-      class="ma-2 white--text"
-      @click="handleClick('company')"
-    >
-      <v-icon left dark>
-        mdi-office-building-outline
-      </v-icon>
-      حقوقی
-    </v-btn>
+  <div>
+    <div class="text-center w-100 text--accent-4">
+      <h4 class="text--secondary">
+        برای افتتاح حساب ابتدا وضعیت خود را انتخاب کنید.
+      </h4>
+    </div>
+    <div class="w-100 d-flex align-center justify-space-around">
+      <v-btn
+        x-large
+        color="primary"
+        class="ma-2 white--text"
+        @click="handleClick('person')"
+      >
+        <v-icon left dark>
+          mdi-account
+        </v-icon>
+        حقیقی
+      </v-btn>
+      <v-btn
+        x-large
+        color="primary"
+        class="ma-2 white--text"
+        @click="handleClick('company')"
+      >
+        <v-icon left dark>
+          mdi-office-building-outline
+        </v-icon>
+        حقوقی
+      </v-btn>
+    </div>
   </div>
 </template>
 <script>

@@ -1,29 +1,30 @@
 <template>
   <div>
-    <div class="step-footer">
-      <v-btn color="error" outlined @click="$emit('prev')">
-        مرحله قبل
-      </v-btn>
-      <v-btn color="primary" outlined @click="$emit('next')">
-        مرحله بعد
-      </v-btn>
+    <div class="text-center w-100 text--accent-4">
+      <h1>در خواست شما با موفقیت ثبت شد.</h1>
+      <h4 class="text--secondary">
+        بعد از بررسی اطلاعات با شما تماس خواهیم گرفت.
+      </h4>
     </div>
   </div>
 </template>
 <script>
 export default {
   props: {
-    type: {
-      type: String,
-      default: ""
+    form: {
+      type: Object,
+      default: () => ({})
+    },
+    accountTypes: {
+      type: Array,
+      default: () => []
+    },
+    goalTypes: {
+      type: Array,
+      default: () => []
     }
   },
-  methods: {
-    handleClick(userType) {
-      this.$emit("update:type", userType);
-      this.$emit("next");
-    }
-  }
+  methods: {}
 };
 </script>
 <style lang="scss" scoped>
