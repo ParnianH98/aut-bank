@@ -23,8 +23,7 @@ export default {
       type: Array,
       default: () => []
     }
-  },
-  methods: {}
+  }
 };
 </script>
 <style lang="scss" scoped>
