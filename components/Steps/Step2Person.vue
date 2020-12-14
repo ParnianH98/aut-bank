@@ -308,6 +308,19 @@
           <v-file-input show-size label="تصویر کارت ملی" outlined />
         </v-col>
       </v-row>
+
+      <v-row>
+        <v-col cols="12" lg="4" md="4" sm="12">
+          لطفا تصویر کارت ملی و شناسنامه را در کنار چهره خودتان به صورت کاملا
+          خوانا و واضح ، دقیقا مانند تصویر نمونه ، ارسال نمایید . هم چنین توجه
+          داشته باشید هنگام تهیه تصویر ، شناسنامه و اطلاعات کارت ملی به صورت
+          برعکس و آینه ای ثبت نشود.
+          <v-file-input class="mt-3" show-size label="عکس" outlined />
+        </v-col>
+        <v-col cols="12" lg="8" md="8" sm="12">
+          <v-img src="/auth_img.jpg" />
+        </v-col>
+      </v-row>
     </div>
     <div class="text-center">
       <v-dialog v-model="dialog2" persistent max-width="290">
